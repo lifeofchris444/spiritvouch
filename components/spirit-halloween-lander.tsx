@@ -1,9 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
 
-const AFFILIATE_LINK = "https://trksy.org/aff_c?offer_id=3280&aff_id=26188"
+const AFFILIATE_LINK = "https://linkthem.net/aff_c?offer_id=3280&aff_id=26188"
 
 const ORANGE = "#EE6B1F"
 const ORANGE_DEEP = "#1C0E05"
@@ -73,9 +72,9 @@ const FAQS = [
 ]
 
 const AVATARS = [
-  { src: "/avatars/spirit-shopper-1.png", alt: "Smiling young woman with dark wavy hair in a black top" },
-  { src: "/avatars/spirit-shopper-2.png", alt: "Smiling young man with curly hair in an orange sweatshirt" },
-  { src: "/avatars/spirit-shopper-3.png", alt: "Smiling woman with blonde hair in a dark green jacket" },
+  { src: "/avatars/spirit-shopper-1.webp", alt: "Smiling young woman with dark wavy hair in a black top" },
+  { src: "/avatars/spirit-shopper-2.webp", alt: "Smiling young man with curly hair in an orange sweatshirt" },
+  { src: "/avatars/spirit-shopper-3.webp", alt: "Smiling woman with blonde hair in a dark green jacket" },
 ]
 
 function Icon({ d, className = "w-6 h-6", color = ORANGE }: { d: string; className?: string; color?: string }) {
@@ -285,14 +284,20 @@ export default function SpiritHalloweenRewardLander() {
               <div className="flex items-center gap-3">
                 <div className="flex -space-x-2">
                   {AVATARS.map((a) => (
-                    <Image
+                    <span
                       key={a.src}
-                      src={a.src || "/placeholder.svg"}
-                      alt={a.alt}
-                      width={72}
-                      height={72}
-                      className="w-9 h-9 rounded-full border-2 border-white/60 object-cover"
-                    />
+                      className="block w-9 h-9 shrink-0 rounded-full border-2 border-white/60 overflow-hidden"
+                      style={{ backgroundColor: ORANGE_BRIGHT }}
+                    >
+                      <img
+                        src={a.src}
+                        alt={a.alt}
+                        width={36}
+                        height={36}
+                        decoding="async"
+                        className="block w-full h-full object-cover text-transparent"
+                      />
+                    </span>
                   ))}
                 </div>
                 <span className="text-white/80 text-sm leading-tight max-w-[200px] text-left">
